@@ -1,0 +1,14 @@
+1.) Given a 3SAT problem with 3 binary variables  
+(x1, x2, and x3), what is the min number of clauses 
+that you would need to create an unsatisfiable sentence?
+ 
+ 8
+
+2.) Create a 3SAT sentence with 3 binary variable that is 
+not satisfiable using the minimum number of clauses identified 
+in part 1.
+
+  (!x1 ∨ !x2 ∨ !x3) ∧(x1 ∨ !x2 ∨ !x3)
+∧ (!x1 ∨ !x2 ∨ x3) ∧ (!x1 ∨ x2 ∨ !x3) 
+∧ (!x1 ∨ x2 ∨ x3) ∧  (x1 ∨ !x2 ∨ x3)
+∧ (x1 ∨ x2 ∨ !x3) ∧  (x1 ∨ x2 ∨ x3)

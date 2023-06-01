@@ -1,0 +1,34 @@
+Timer unit: 1e-06 s
+
+Total time: 7.8733e-05 s
+File: cs412_hw0_b.py
+Function: main at line 14
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    14                                           @profile
+    15                                           def main():
+    16         1         23.6     23.6     29.9      noises = input().split() # look for subs for .split()
+    17         1          3.7      3.7      4.7      n = int(input())
+    18                                               # map for animal sounds
+    19         1          0.3      0.3      0.4      animals = {}
+    20                                               # store fox and 'known' sounds
+    21         1          0.3      0.3      0.3      fox = []
+    22         1          0.2      0.2      0.3      known = {}
+    23         5          2.4      0.5      3.0      for _ in range(n):
+    24         5          9.3      1.9     11.9          heard = input().split()
+    25                                                   # k = sound, v = animal
+    26         5          2.5      0.5      3.2          animals[heard[2]] = heard[0]
+    27        18          4.2      0.2      5.4      for noise in noises:
+    28                                                   # known noise found
+    29        11          3.3      0.3      4.2          if noise in animals:
+    30                                                       # add known reference (auto no duplicates)
+    31                                                       # known.update({animals.get(noise) : None})
+    32        11          4.3      0.4      5.4              known[animals.get(noise)] = None
+    33                                                   else:
+    34                                                       # noises not known are 'foxes'
+    35         7          2.3      0.3      2.9              fox.append(noise)
+    36                                               # output solution 
+    37         1         16.8     16.8     21.4      print("what the fox says:", *fox, "")
+    38         1          5.5      5.5      7.0      print("also heard:", *known, "")
+

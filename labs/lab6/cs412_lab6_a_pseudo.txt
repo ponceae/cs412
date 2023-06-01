@@ -1,0 +1,49 @@
+""" Lab 6: Greedy Algorithms, Part A: 0-1 Knapsack Pseudocode
+"""
+
+
+def knapsack(i, W):
+    """ knap(i, W) -> return the value of the 
+        items in the bag that were taken
+        - weight and price are parallel arrays
+    """
+    if i == -1 or W == 0:
+        return 0
+    if W[i] <= W:
+        wit = knapsack(i - 1, W - W[i])
+    else:
+        wit = float('-inf')
+    witout = knapsack(i - 1, W)
+    return max(wit, witout)
+
+Lab Questions:
+1.) Which problem is easier (more efficient) to solve, the 0/1 knapsack or fractional knapsack?
+
+    The fractional knapsack problem ends up being more efficient than the 0-1 knapsack problem.
+    This is because the recursive 0-1 knapsack problem runs in exponential time, which is slower
+    than the fractional knapsack problem which runs in logarithmic time.
+
+2.) How would the code/approach for the fractional knapsack problem perform on the 0/1 problem? 
+Would it yield the correct answer? Would it be fast?
+
+    If the fractional knapsack problem were used on a 0-1 knapsack problem, it would yield
+    an incorrect answer. This is because in the 0-1 knapsack problem, you either take an 
+    item or you don't take an item. If it were run on the fractional knapsack problem, if 
+    you did not take an item, it would attempt to fractionalize the item that is not taken,
+    therefore yielding a different answer.
+
+3.) For the two questions above, give an example input to support your description?
+
+    Given an input of:
+    11
+    3
+    ring 100 5
+    gold 50 10
+    silver 50 5
+
+    The fractional knapsack problem returns:
+    ring(100.00, 5.00) silver(50.00, 5.00) gold(5.00, 1.00) 
+    155.0
+
+    While the 0-1 knapsack problem would return
+    ring(100.00, 5.00) gold(50.00, 5.00)
